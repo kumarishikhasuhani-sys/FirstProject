@@ -1,0 +1,24 @@
+# Railway build configuration (Nixpacks)
+# This runs once during deploy. Railway then uses [start] to launch the server.
+
+[phases.setup]
+nixPkgs = ["nodejs_22", "python311"]
+
+[phases.install]
+cmds = [
+    "cd frontend && npm install",
+    "pip install -r backend/requirements.txt"
+]
+
+[phases.build]
+cmds = [
+    # Build the React app
+    "cd frontend && npm run build",
+    # Copy the Vite output into the Django project so Django can serve it
+    "cp -r frontend/dist backend/frontend_build",
+    # Collect Django admin / DRF static files
+    "cd backend && python manage.py collectstatic --no-input"
+]
+
+[start]
+cmd = "cd backend && python manage.py migrate --no-input && gunicorn breathe.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120"

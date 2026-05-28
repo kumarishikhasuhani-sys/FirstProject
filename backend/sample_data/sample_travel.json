@@ -1,0 +1,33 @@
+[
+  {
+    "trip_id": "T-1001",
+    "type": "FLIGHT",
+    "ticketed_date": "2026-04-11",
+    "traveler": "employee_001",
+    "origin": "DEL",
+    "destination": "BLR",
+    "cabin": "ECONOMY",
+    "distance_km": 1740,
+    "amount": 8200,
+    "currency": "INR"
+  },
+  {
+    "trip_id": "T-1002",
+    "type": "HOTEL",
+    "check_in": "2026-04-20",
+    "check_out": "2026-04-23",
+    "city": "Bengaluru",
+    "nights": 3,
+    "amount": 18000,
+    "currency": "INR"
+  },
+  {
+    "trip_id": "T-1003",
+    "type": "GROUND",
+    "ride_date": "2026-04-19",
+    "city": "Berlin",
+    "distance_km": null,
+    "amount": 42,
+    "currency": "EUR"
+  }
+]
